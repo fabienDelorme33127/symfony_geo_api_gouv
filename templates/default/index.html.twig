@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}API Symfony{% endblock %}
+
+{% block body %}
+
+    <h1>Liste des régions</h1>
+    <div class="bd-example d-flex flex-wrap">
+    {% for region in mesRegions %}
+
+        <div class="card-group">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ region.nom }}</h5>
+                    <p class="card-text">{{ region.code }}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+    
+    
+
+{% endblock %}
