@@ -14,8 +14,8 @@
                         <select name="region" id="region">
                             <option value="toutes">Toutes les régions</option>
                             {% for maRegion in mesRegions %}
-{#                                 <option value="{{maRegion.code}}">{{maRegion.name}}</option>
- #}                            {% endfor %}
+                                <option value="{{maRegion.code}}"{% if app.request.get('region', maRegion.code) == maRegion.code %} selected {% endif %}>{{maRegion.nom}}</option>
+                            {% endfor %}
                         </select>
                     </div>
                 </div>
@@ -23,7 +23,23 @@
                     <button type="submit" class="btn btn-primary">Rechercher</button>
                 </div>
             </div>
-        </form>        
+        </form>
+        
+
+        <div class="row">
+        {% for monDep in mesDeps %}
+
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ monDep.nom }}</h5>
+                        <p class="card-text">{{ monDep.code }}</p>                    
+                    </div>
+                </div>
+            </div>
+        
+        {% endfor %}
+        </div>
     </div>
 
 {% endblock %}
